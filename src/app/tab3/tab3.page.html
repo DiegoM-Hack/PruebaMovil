@@ -1,17 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-card-content class="perfil-container">
+
+      <!-- FOTO DE PERFIL -->
+      <div class="foto-container">
+
+        <ion-img
+          *ngIf="fotoPerfil"
+          [src]="fotoPerfil">
+        </ion-img>
+
+        <div *ngIf="!fotoPerfil" class="placeholder">
+          Sin foto
+        </div>
+
+      </div>
+
+      <ion-button expand="block" (click)="tomarFoto()">
+        Cambiar foto
+      </ion-button>
+
+      <!-- NOMBRE -->
+      <ion-item lines="full">
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input
+          [(ngModel)]="nombre"
+          placeholder="Escribe tu nombre">
+        </ion-input>
+      </ion-item>
+
+      <!-- CORREO -->
+      <ion-item lines="full">
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          type="email"
+          placeholder="correo@email.com">
+        </ion-input>
+      </ion-item>
+
+      <!-- BOTÓN GUARDAR -->
+      <ion-button
+        expand="block"
+        class="ion-margin-top"
+        (click)="guardarPerfil()">
+
+        Guardar perfil
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

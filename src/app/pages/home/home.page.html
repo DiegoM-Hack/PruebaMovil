@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Anime App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Buscador -->
+  <ion-searchbar
+    [(ngModel)]="searchText"
+    placeholder="Buscar anime">
+  </ion-searchbar>
+
+  <ion-button
+    expand="block"
+    (click)="searchAnime()">
+
+    Buscador
+  </ion-button>
+
+  <ion-button
+    expand="block"
+    
+    >
+
+    Configuraciones
+  </ion-button> 
+
+ 
+
+
+  <!-- Loading -->
+  <div
+    style="text-align: center; margin-top: 20px;"
+    *ngIf="loading">
+
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <!-- Lista de animes -->
+  <ion-card *ngFor="let anime of animes">
+
+    <ion-img
+      [src]="anime.images.jpg.image_url">
+    </ion-img>
+
+    <ion-card-content>
+
+      <h2>
+        {{ anime.title }}
+      </h2>
+
+      <p>
+        ⭐ Score: {{ anime.score }}
+      </p>
+
+      <p>
+        🎬 Episodios: {{ anime.episodes }}
+      </p>
+
+      <p>
+        📅 Año: {{ anime.year }}
+      </p>
+
+      <p>
+        {{ anime.synopsis }}
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-content>
+
+      <h2 class="titulo">Crear Cuenta</h2>
+
+      <!-- Nombre -->
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Ingresa tu nombre">
+        </ion-input>
+      </ion-item>
+
+      <!-- Correo -->
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          type="email"
+          placeholder="correo@email.com">
+        </ion-input>
+      </ion-item>
+
+      <!-- Contraseña -->
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          type="password"
+          placeholder="********">
+        </ion-input>
+      </ion-item>
+
+      <!-- Botón -->
+      <ion-button
+        expand="block"
+        class="ion-margin-top"
+        (click)="register()">
+
+        Registrarse
+      </ion-button>
+
+      <!-- Mensaje -->
+      <ion-text color="danger" *ngIf="mensaje">
+        <p class="mensaje">{{ mensaje }}</p>
+      </ion-text>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
